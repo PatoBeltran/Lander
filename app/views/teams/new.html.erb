@@ -1,0 +1,18 @@
+<%= form_for @team do |f| %>
+
+  <%= f.fields_for :users do |builder| %>
+    <%= builder.label :email %>
+    <%= builder.email_field :email %>
+
+    <%= builder.label :password %>
+    <%= builder.password_field :password %>
+
+    <%= builder.label :password_confirmation %>
+    <%= builder.password_field :password_confirmation %>
+  <% end %>
+
+    <%= f.label :name, "Company Name" %>
+    <%= f.text_field :name %>
+
+  <%= f.submit "Create account", class: 'button' %>
+<% end %>
