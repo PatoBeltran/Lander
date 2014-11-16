@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   belongs_to :team, inverse_of: :users
   has_many :channels
+  has_many :links, inverse_of: :user
 
   validates :team, existence: true
 end
