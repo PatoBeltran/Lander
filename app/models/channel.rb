@@ -4,8 +4,7 @@ class Channel < ActiveRecord::Base
 
   validates :name, uniqueness: { scope: :team_id }, presence: true
 
-
-  before_create :sanitize_name
+  before_validation :sanitize_name
 
   def sanitize_name
     self.name.gsub!(" ", "")

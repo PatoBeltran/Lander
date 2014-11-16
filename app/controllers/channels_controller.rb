@@ -12,6 +12,18 @@ class ChannelsController < ApplicationController
     end
   end
 
+  def update
+    channel = current_team.channels.find(params[:id])
+
+    respond_to do |format|
+      if channel.update(channel_params)
+        format.json { respond_with_bip(channel) }
+      else
+        format.json { respond_with_bip(channel) }
+      end
+    end
+  end
+
   private
 
     def channel_params

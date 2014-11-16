@@ -3,7 +3,7 @@
 
 <ul>
   <% current_team.channels.each do |channel| %>
-    <li>#<%= channel.name %> by <%= channel.creator.email %></li>
+    <li><%= best_in_place channel, :name, :display_with => lambda { |v| no_spaces_for(v) } %></li>
   <% end %>
 </ul>
 
