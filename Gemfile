@@ -54,7 +54,7 @@ group :development, :test do
   gem "rspec-rails"
   gem "debugger2", git: "git://github.com/ko1/debugger2.git"
   gem "factory_girl_rails"
-  gem "ffaker"
+  gem "faker"
 end
 
 group :production do

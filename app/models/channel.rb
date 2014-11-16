@@ -1,7 +1,7 @@
 class Channel < ActiveRecord::Base
   belongs_to :team, inverse_of: :channels
   belongs_to :creator, foreign_key: "creator_id", class_name: "User"
-  has_many :links, inverse_of: :channel
+  has_many :links, inverse_of: :channel, dependent: :destroy
 
   validates :name, uniqueness: { scope: :team_id }, presence: true
 

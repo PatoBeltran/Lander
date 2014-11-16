@@ -6,4 +6,9 @@ class Link < ActiveRecord::Base
   acts_as_taggable
 
   paginates_per 20
+
+  scope :by_title, lambda { |keyword = ''|
+    where("title ILIKE ?", "%#{keyword}%")
+  }
+
 end

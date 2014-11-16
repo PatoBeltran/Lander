@@ -2,7 +2,7 @@ class API::V1::LinksController < API::V1::BaseController
   before_filter :authenticate_user!
 
   def index
-    links = current_user.team.links.page(params[:page]).per(params[:per_page])
+    links = current_user.team.links.by_title(params[:q]).page(params[:page]).per(params[:per_page])
 
     render json: links, meta: pagination_json(links, Link, params[:per_page])
   end
