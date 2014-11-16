@@ -3,7 +3,7 @@
 
 <ul>
   <% current_team.channels.each do |channel| %>
-    <li><%= best_in_place channel, :name, :display_with => lambda { |v| no_spaces_for(v) } %></li>
+    <li><%= best_in_place channel, :name, :display_with => lambda { |v| no_spaces_for(v) } %> | <%= link_to "Destroy", channel_path(channel), method: :delete, class: "button danger mini" %> </li>
   <% end %>
 </ul>
 

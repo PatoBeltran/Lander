@@ -24,6 +24,14 @@ class ChannelsController < ApplicationController
     end
   end
 
+  def destroy
+    channel = current_team.channels.find(params[:id])
+
+    channel.destroy
+
+    redirect_to root_path
+  end
+
   private
 
     def channel_params
