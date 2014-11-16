@@ -1,4 +1,5 @@
 class TeamsController < ApplicationController
+  before_filter :authenticate_user!, only: [:show]
 
   def new
     @team_registration = TeamRegistration.new
@@ -14,6 +15,10 @@ class TeamsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
+    @team = current_user.team
   end
 
   private
