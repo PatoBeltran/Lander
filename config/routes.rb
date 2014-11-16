@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
+  get 'channels/new'
+
   constraints(Subdomain) do
     get "/" => "teams#show"
+    resources :channels, only: [:new, :create]
   end
 
   devise_for :users

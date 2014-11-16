@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   belongs_to :team, inverse_of: :users
+  has_many :channels
 
   validates :team, existence: true
 end

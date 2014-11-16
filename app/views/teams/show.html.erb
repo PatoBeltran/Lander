@@ -1,2 +1,16 @@
-<h1><%= @team.name %></h1>
+<h1><%= current_team.name %></h1>
 <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+
+<ul>
+  <% current_team.channels.each do |channel| %>
+    <li>#<%= channel.name %> by <%= channel.creator.email %></li>
+  <% end %>
+</ul>
+
+
+<%= form_for @channel do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.submit "Create channel", class: 'button' %>
+<% end %>

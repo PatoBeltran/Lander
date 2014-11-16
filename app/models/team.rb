@@ -1,5 +1,7 @@
 class Team < ActiveRecord::Base
   has_many :users, inverse_of: :team
+  has_many :channels, inverse_of: :team
+
 
   validates :subdomain, uniqueness: true, presence: true
   validates :name, presence: true

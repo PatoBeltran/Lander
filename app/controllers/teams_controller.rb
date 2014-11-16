@@ -18,7 +18,7 @@ class TeamsController < ApplicationController
   end
 
   def show
-    @team = current_user.team
+    @channel = Channel.new
   end
 
   private

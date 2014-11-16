@@ -8,4 +8,10 @@ class ApplicationController < ActionController::Base
     root_url(subdomain: resource.team.subdomain)
   end
 
+  def current_team
+    @current_team ||= current_user.team
+  end
+
+  helper_method :current_team
+
 end
