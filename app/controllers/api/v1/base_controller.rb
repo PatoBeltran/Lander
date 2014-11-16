@@ -21,4 +21,10 @@ class API::V1::BaseController < ApplicationController
   def current_user
     @current_user
   end
+
+  def pagination_json(paginated_array, object_class, per_page)
+    per_page = object_class.default_per_page unless per_page
+    { pagination: { per_page: per_page.to_i, total_pages: paginated_array.total_pages, total_objects: paginated_array.total_count } }
+  end
+
 end

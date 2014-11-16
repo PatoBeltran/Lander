@@ -1,6 +1,12 @@
 class API::V1::LinksController < API::V1::BaseController
   before_filter :authenticate_user!
 
+  def index
+    links = current_user.team.links.page(params[:page]).per(params[:per_page])
+
+    render json: links, meta: pagination_json(links, Link, params[:per_page])
+  end
+
   def create
     team = current_user.team
     link = team.links.build(link_params)

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
     namespace :api do
       api_version(:module => "V1", :header => {:name => "Accept", :value => "application/vnd.lander.io+json; version=1", default: true}) do
-        resources :links, only: [:create]
+        resources :links, only: [:create, :index]
         resources :sessions, only: [:create]
 
         delete 'sessions' => 'sessions#destroy'

@@ -4,4 +4,6 @@ class Link < ActiveRecord::Base
   belongs_to :channel, inverse_of: :links
 
   acts_as_taggable
+
+  paginates_per 20
 end
