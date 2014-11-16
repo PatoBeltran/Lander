@@ -67,3 +67,5 @@ group :development do
 end
 
 gem "devise"
+gem 'compass-rails', '~> 1.1.3'
+gem 'furatto', git: 'git@github.com:IcaliaLabs/furatto-rails.git'
