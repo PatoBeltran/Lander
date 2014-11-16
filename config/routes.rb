@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     namespace :api do
       api_version(:module => "V1", :header => {:name => "Accept", :value => "application/vnd.lander.io; version=1", default: true}) do
         resources :links, only: [:create]
+        resources :sessions, only: [:create]
       end
     end
   end
