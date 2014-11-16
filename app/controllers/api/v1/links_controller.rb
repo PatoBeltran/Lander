@@ -17,6 +17,6 @@ class API::V1::LinksController < API::V1::BaseController
   private
 
     def link_params
-      params.require(:link).permit(:title, :url, :channel_id)
+      params.require(:link).permit(:title, :url, :channel_id, :tag_list)
     end
 end
