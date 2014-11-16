@@ -1,6 +1,7 @@
 <h1><%= current_team.name %></h1>
 <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
 
+<h2>Channels</h2>
 <ul>
   <% current_team.channels.each do |channel| %>
     <li><%= best_in_place channel, :name, :display_with => lambda { |v| no_spaces_for(v) } %> | <%= link_to "Destroy", channel_path(channel), method: :delete, class: "button danger mini" %> </li>
@@ -14,3 +15,18 @@
 
   <%= f.submit "Create channel", class: 'button' %>
 <% end %>
+
+<%= form_tag invitations_path, method: :post do %>
+  <%= label_tag "invitation_email" %>
+  <%= email_field_tag "invitation_email" %>
+
+  <%= submit_tag "Invite", class: "button primary" %>
+<% end %>
+
+<h2>Members</h2>
+
+<ul>
+  <% current_team.users.each do |user| %>
+    <li><%= user.email %> | Accepted the invitation? <%= user.invitation_accepted? %></li>
+  <% end %>
+</ul>

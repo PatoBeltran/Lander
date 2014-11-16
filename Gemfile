@@ -70,3 +70,4 @@ gem "devise"
 gem 'compass-rails', '~> 1.1.3'
 gem 'furatto', git: 'git@github.com:IcaliaLabs/furatto-rails.git'
 gem "best_in_place"
+gem 'devise_invitable', '~> 1.3.4'

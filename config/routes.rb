@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   constraints(Subdomain) do
     get "/" => "teams#show"
     resources :channels, only: [:create, :update, :destroy]
+    resources :invitations, only: [:create]
   end
 
   devise_for :users
