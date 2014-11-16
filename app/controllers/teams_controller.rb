@@ -1,13 +1,15 @@
 class TeamsController < ApplicationController
+
   def new
-    @team = Team.new
-    @team.users.build
+    @team_registration = TeamRegistration.new
+    @team_registration.team.users.build
   end
 
   def create
     @team = Team.new(team_params)
+    @team_registration = TeamRegistration.new(@team, params[:team][:users_attributes]["0"])
 
-    if @team.save
+    if @team_registration.register
       redirect_to root_path
     else
       render :new

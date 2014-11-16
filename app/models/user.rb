@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  belongs_to :team
+  belongs_to :team, inverse_of: :users
 
-  validates :team, presence: true
+  validates :team, existence: true
 end
