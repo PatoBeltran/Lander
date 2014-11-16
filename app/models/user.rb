@@ -9,4 +9,20 @@ class User < ActiveRecord::Base
   has_many :links, inverse_of: :user
 
   validates :team, existence: true
+  validates :auth_token, presence: true, uniqueness: true
+
+  before_create :set_auth_token!
+
+  def set_auth_token!
+    self.auth_token = self.class.generate_auth_token
+  end
+
+  private
+
+    def self.generate_auth_token
+      loop do
+        token = SecureRandom.base64(100)
+        break token unless User.exists?(auth_token: token)
+      end
+    end
 end
