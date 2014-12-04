@@ -13,6 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require furatto
-//= require turbolinks
 //= require best_in_place
 //= require_tree .

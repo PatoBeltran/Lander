@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
-  <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+  <link href='http://fonts.googleapis.com/css?family=Raleway:600,700,100,800,500,400,300' rel='stylesheet' type='text/css'>
 
   <title>Lander</title>
 
@@ -21,7 +21,55 @@
 </head>
 
 <body>
-  <%= yield %>
+  <div class="row">
+    <div class="col-3 nopadding sidebar">
+      <ul class="navigation brand">
+      <li class="brand-name">
+        <%= link_to "Lander", root_path, class: "" %>
+      </li>
+      <li class="company-name">
+        <%= link_to current_team.name, root_path %>
+      </li>
+      </ul>
+
+      <ul class="navigation topics">
+        <li class="header">TOPICS</li>
+        <% current_team.channels.each do |channel| %>
+          <li><%= link_to "##{channel.name}", '#', class: 'text-uppercase' %></li>
+        <% end %>
+      </ul>
+      <%= link_to "ADD TOPIC", '#', class: 'button alpha pill large new-topic-button', data: { furatto: "modal", target: "#modal-1", transition: "1", theme: "alpha" } %>
+    </div>
+    <div class="col-12 main-content">
+      <div class="row user-actions">
+        <%= link_to destroy_user_session_path, method: :delete, class: "pull-right" do %>
+          <%= fa_icon "sign-out" %>
+      <% end %>
+        <%= link_to "#", class: "pull-right" do %>
+          <%= fa_icon "cog" %>
+      <% end %>
+        <%= link_to "#", class: "pull-right" do %>
+          <%= fa_icon "search" %>
+      <% end %>
+      </div>
+      <%= yield %>
+    </div>
+  </div>
+  <div class="modal" id="modal-1">
+  <div class="modal-header">
+    Modal Dialog
+  </div>
+  <div class="modal-content">
+    <div>
+      <%= form_for @channel do |f| %>
+        <%= f.text_field :name %>
+      <% end %>
+      <div class="modal-footer">
+        <a class="modal-close button alpha primary">Close me!</a>
+      </div>
+    </div>
+  </div>
+</div>
   <%= javascript_include_tag "application" %>
 </body>
 </html>
