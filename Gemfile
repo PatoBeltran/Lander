@@ -48,6 +48,7 @@ group :test do
   gem "email_spec"
   gem "shoulda-matchers"
   gem "selenium-webdriver"
+  gem 'rspec-collection_matchers'
 end
 
 group :development, :test do
