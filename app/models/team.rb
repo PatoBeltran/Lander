@@ -9,6 +9,7 @@ class Team < ActiveRecord::Base
 
   before_validation :set_subdomain
 
+  after_create :create_default_channel!
   accepts_nested_attributes_for :users
 
   def set_subdomain
@@ -18,6 +19,10 @@ class Team < ActiveRecord::Base
   def extract_subdomain_from_user_email
     user_email = self.users.first.email
     user_email.gsub(/.+@([^.]+).+/, '\1')
+  end
+
+  def create_default_channel!
+    channels.create!(name: "general")
   end
 
 end

@@ -1,0 +1,147 @@
+@import "furatto_overrides";
+@import "font-awesome";
+
+/* SIDEBAR STYLE */
+.sidebar {
+  background: rgba(#5F4FB2, 0.05);
+  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+
+  input[type="text"] {
+    border: none;
+  }
+}
+
+.navigation.brand {
+  padding-top: 0;
+  padding-bottom: 0;
+
+  a {
+    display: block;
+  }
+
+  .brand-name {
+    font-weight: 600;
+    font-size: 19px;
+    background: #5F4FB2;
+
+    a {
+      height: 84px;
+      color: #FFF;
+      padding-top: 30px;
+    }
+  }
+
+  .company-name {
+    background: #4D408C;
+    font-weight: 300;
+    font-size: 19px;
+
+    a {
+      height: 52px;
+      color: #FFF;
+      padding-top: 15px;
+    }
+  }
+}
+
+.navigation.topics {
+  padding-top: 20px;
+  text-align: left;
+  margin-bottom: 10px;
+  overflow: scroll;
+
+
+  .header {
+    text-align: center;
+    color: rgba(#4C408C, 0.4);
+    font-size: 13px;
+    margin-bottom: 15px;
+    font-weight: 600;
+  }
+
+  li:not(.header) {
+    padding-left: 36px;
+    font-size: 18px;
+
+    a {
+      color: #766EA1;
+
+      &.active {
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.button.new-topic-button {
+  color: rgba(#4C408C, 0.57);
+  position: absolute;
+  bottom: 20px;
+  left: 20%;
+}
+
+/* MAINCONTENT STYLE */
+.main-content {
+  padding-left: 53px;
+  padding-right: 53px;
+  padding-top: 20px;
+  margin-left: 20%;
+
+  .user-actions {
+    a {
+      color: #979797;
+      margin-left: 15px;
+      font-size: 18px;
+    }
+  }
+}
+
+.topic-title {
+  color: #5F4FB2;
+  margin-bottom: 44px;
+}
+
+/* LINKS CONTAINER */
+.link-container {
+  @extend %clearfix;
+  margin-bottom: 11px;
+  border: 1px solid #F0F0F0;
+  @include border-radius(3px);
+  background: #FFF;
+  padding: 10px 10px 10px 32px;
+  position: relative;
+  display: block;
+
+  .author-image {
+    position: absolute;
+    left: -30px;
+  }
+
+  .title {
+    margin-bottom: 5px;
+    color: #524A7D;
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .author {
+    color: rgba(#505050, 0.47);
+  }
+
+  .tag {
+    font-weight: 600;
+    color: rgba(#4C408C, 0.21);
+  }
+
+  .actions {
+    a {
+      color: #5F4FB2;
+      font-size: 18px;
+      margin: 0 0 0 5px;
+    }
+  }
+}

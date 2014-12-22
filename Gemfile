@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.1.2'
+ruby '2.1.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.7'
@@ -48,6 +48,7 @@ group :test do
   gem "email_spec"
   gem "shoulda-matchers"
   gem "selenium-webdriver"
+  gem 'rspec-collection_matchers'
 end
 
 group :development, :test do
@@ -75,3 +76,4 @@ gem 'versionist'
 gem 'active_model_serializers', '0.8.1'
 gem 'acts-as-taggable-on'
 gem 'kaminari'
+gem "font-awesome-rails"
