@@ -7,6 +7,8 @@ class Channel < ActiveRecord::Base
 
   before_validation :sanitize_name
 
+  paginates_per 20
+
   def sanitize_name
     self.name.gsub!(" ", "")
   end
