@@ -40,40 +40,41 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 
-gem "figaro"
-gem "unicorn"
+gem 'figaro'
+gem 'unicorn'
 group :test do
-  gem "cucumber-rails", require: false
-  gem "database_cleaner"
-  gem "email_spec"
-  gem "shoulda-matchers"
-  gem "selenium-webdriver"
+  gem 'cucumber-rails', require: false
+  gem 'database_cleaner'
+  gem 'email_spec'
+  gem 'shoulda-matchers'
+  gem 'selenium-webdriver'
   gem 'rspec-collection_matchers'
 end
 
 group :development, :test do
-  gem "rspec-rails"
-  gem "debugger2", git: "git://github.com/ko1/debugger2.git"
-  gem "factory_girl_rails"
-  gem "faker"
+  gem 'rspec-rails'
+  gem 'debugger2', git: 'git://github.com/ko1/debugger2.git'
+  gem 'factory_girl_rails'
+  gem 'faker'
+  gem 'mailcatcher'
 end
 
 group :production do
-  gem "rails_12factor"
+  gem 'rails_12factor'
 end
 
 group :development do
-  gem "better_errors"
-  gem "binding_of_caller"
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
-gem "devise"
+gem 'devise'
 gem 'compass-rails', '~> 1.1.3'
 gem 'furatto', git: 'git@github.com:IcaliaLabs/furatto-rails.git'
-gem "best_in_place"
+gem 'best_in_place'
 gem 'devise_invitable', '~> 1.3.4'
 gem 'versionist'
 gem 'active_model_serializers', '0.8.1'
 gem 'acts-as-taggable-on'
 gem 'kaminari'
-gem "font-awesome-rails"
+gem 'font-awesome-rails'
